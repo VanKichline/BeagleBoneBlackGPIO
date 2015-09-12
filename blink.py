@@ -1,7 +1,11 @@
 #!/usr/bin/python
 
 import Adafruit_BBIO.GPIO as GPIO
-import time
+import time, os, sys
+
+if not os.geteuid() == 0:
+    sys.exit('Script must be run as root')
+
 pinOut = "P9_23"
 tDelay = 0.1
 

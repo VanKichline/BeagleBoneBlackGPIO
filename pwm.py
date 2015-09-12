@@ -2,6 +2,11 @@
 
 import Adafruit_BBIO.PWM as PWM
 import time
+import os
+import sys
+
+if not os.geteuid() == 0:
+    sys.exit('Script must be run as root')
 
 pinOut = "P8_13"
 tDelay = 0.1

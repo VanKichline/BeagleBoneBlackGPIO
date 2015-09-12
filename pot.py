@@ -1,6 +1,10 @@
 #!/usr/bin/python
 import Adafruit_BBIO.ADC as ADC
-import time
+import time, os, sys
+
+if not os.geteuid() == 0:
+    sys.exit('Script must be run as root')
+
 pinIn  = "P9_33"
 last   = -1
 tDelay = 0.5
